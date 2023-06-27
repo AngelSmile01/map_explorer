@@ -1,0 +1,40 @@
+{
+    "sram": [
+                {
+                    "skillname": "Truanderie",
+                    "acquisitionlevel": [1, 66, 132],
+                    "initial_acquisition_level": 1,
+                    "useperturn": 3,
+                    "launch_per_turn_per_player": 2,
+                    "line_of_sight": "Yes",
+                    "target_necessary": "Yes",
+                    "flexible_range": "Yes",
+                    "range": [1, 4],
+                    "target_zone": "free",
+                    "PA": 3,
+                    "launch_interval": 0
+                },
+                {
+                    "skillname": "Piège sournois",
+                    "initial_acquisition_level": 1,
+                    "acquisitionlevel": [1, 67, 133],
+                    "useperturn": 1,
+                    "launch_per_turn_per_player": 1,
+                    "line_of_sight": "No",
+                    "target_necessary": "No",
+                    "flexible_range": "Yes",
+                    "range": [1, 4],
+                    "target_zone": "cross",
+                    "target_zone_effect_range": 1,
+                    "PA": 3,
+                    "launch_interval" : 0
+                },
+                {
+                    "skillname": "Invisibilité",
+                    "initial_acquisition_level": 1,
+                    "range": [0, 4],
+                    "launch_interval": 6,
+                    "PA": 2
+                }
+            ]
+}

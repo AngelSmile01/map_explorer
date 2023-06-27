@@ -3,5 +3,5 @@ from player import Player
 
 def test_player_name():
     p = Player("Toto", 8)
-    assert p.name == "Tati"
+    assert p.name == "Toto"
 
