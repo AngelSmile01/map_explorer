@@ -2,9 +2,9 @@ import glob
 import json
 
 import pyautogui as pg
+from utility import find_in_screen
 
-
-from shortest_path import find_shortest_path, create_points_from_input
+from PlayerFolder.shortest_path import find_shortest_path, create_points_from_input
 
 class Tile:
     """ The Tile class handles...
