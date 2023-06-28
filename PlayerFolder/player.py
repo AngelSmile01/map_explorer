@@ -1,14 +1,17 @@
 from tile import Tile
+import time
+import pyautogui as pg
 
 class Player:
     """ The Player class contains all the information about the Player (us)
     """
-    def __init__(self, name, level):
+    def __init__(self, name, level, cclass):
         """_summary_
 
         Args:
             name (string): Name of our character.
             level (int): Level of our character.
+            cclass (string): Class of our character
         """
 
         self.name = name
