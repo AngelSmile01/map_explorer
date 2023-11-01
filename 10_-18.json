@@ -1,0 +1,48 @@
+{
+  "points": {
+    "water": [
+      723,
+      277
+    ],
+    "to_9_-18": [
+      61,
+      127
+    ],
+    "to_10_-19": [
+      831,
+      15
+    ]
+  },
+  "links": [
+    {
+      "start_point": "water",
+      "end_point": "to_10_-19",
+      "coordinates": [
+        [
+          723,
+          277
+        ],
+        [
+          831,
+          15
+        ]
+      ],
+      "orientation": "bidirectional"
+    },
+    {
+      "start_point": "water",
+      "end_point": "to_9_-18",
+      "coordinates": [
+        [
+          723,
+          277
+        ],
+        [
+          61,
+          127
+        ]
+      ],
+      "orientation": "bidirectional"
+    }
+  ]
+}

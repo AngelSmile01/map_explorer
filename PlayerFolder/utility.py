@@ -8,6 +8,7 @@ import numpy as np
 
 RESSOURCES = ["tin", "iron", "kobalt", "bronze"]
 
+
 def non_max_suppression(boxes_and_scores, overlap_threshold):
     if len(boxes_and_scores) == 0:
         return []
@@ -38,17 +39,25 @@ def non_max_suppression(boxes_and_scores, overlap_threshold):
         h = np.maximum(0, yy2 - yy1 + 1)
 
         overlap = (w * h) / (areas[i] + areas[idxs[:last]] - w * h)
-        idxs = np.delete(idxs, np.concatenate(([last], np.where(overlap > overlap_threshold)[0])))
+        idxs = np.delete(
+            idxs, np.concatenate(([last], np.where(overlap > overlap_threshold)[0]))
+        )
 
     return [boxes_and_scores[i] for i in pick]
 
 
-def match_image(template_path, screenshot_path, method=cv2.TM_CCOEFF_NORMED, threshold=0.8, overlap_threshold=0.5):
+def match_image(
+    template_path,
+    screenshot_path,
+    method=cv2.TM_CCOEFF_NORMED,
+    threshold=0.8,
+    overlap_threshold=0.5,
+):
     # Load the template image and screenshot as grayscale images
     template = cv2.imread(template_path, cv2.IMREAD_GRAYSCALE)
     screenshot = cv2.imread(screenshot_path, cv2.IMREAD_GRAYSCALE)
     # define the kernel
-    kernel = np.ones((2,2),np.uint8)
+    kernel = np.ones((2, 2), np.uint8)
 
     # compute the morphological gradient
     template = cv2.morphologyEx(template, cv2.MORPH_GRADIENT, kernel)
@@ -59,10 +68,9 @@ def match_image(template_path, screenshot_path, method=cv2.TM_CCOEFF_NORMED, thr
     # Perform template matching
     result = cv2.matchTemplate(screenshot, template, method)
 
-    print(result)
     # Get the locations of matches above the threshold
     locations = np.where(result >= threshold)
-    
+
     # Calculate the bounding boxes and confidence scores for each match
     width, height = template.shape[::-1]
     boxes_and_scores = []
@@ -78,6 +86,7 @@ def match_image(template_path, screenshot_path, method=cv2.TM_CCOEFF_NORMED, thr
     # Return the list of bounding boxes and confidence scores
     return boxes_and_scores
 
+
 def find_in_screen(template_path, output_path, delete_screenshot=True):
     # Capture the screenshot
     screenshot = ImageGrab.grab()
@@ -86,7 +95,9 @@ def find_in_screen(template_path, output_path, delete_screenshot=True):
     screenshot.save(output_path)
 
     # Process the screenshot using the match_image function
-    boxes = match_image(template_path, output_path, overlap_threshold=0.5, threshold=0.97)
+    boxes = match_image(
+        template_path, output_path, overlap_threshold=0.5, threshold=0.97
+    )
     for box in boxes:
         bounding_box, confidence = box
 

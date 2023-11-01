@@ -1,0 +1,48 @@
+{
+  "points": {
+    "to_10_-19": [
+      1044,
+      866
+    ],
+    "to_path": [
+      1428,
+      568
+    ],
+    "to_11_-20": [
+      1671,
+      403
+    ]
+  },
+  "links": [
+    {
+      "start_point": "to_10_-19",
+      "end_point": "to_path",
+      "coordinates": [
+        [
+          1044,
+          866
+        ],
+        [
+          1428,
+          568
+        ]
+      ],
+      "orientation": "bidirectional"
+    },
+    {
+      "start_point": "to_path",
+      "end_point": "to_11_-20",
+      "coordinates": [
+        [
+          1428,
+          568
+        ],
+        [
+          1671,
+          403
+        ]
+      ],
+      "orientation": "start_to_end"
+    }
+  ]
+}
